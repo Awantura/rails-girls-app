@@ -11,16 +11,15 @@
     </div>
   </div>
 </nav>
- <div><% for entry in @entries %>
+<% @entries.each do |entry| %>
   <div class="panel panel-default">
-   <div class="panel-heading"> 
-     <h3 class="panel-title"><%= link_to(entry.title, entry_path(entry)) %></h3>
-   </div>
-   <div class="panel-body">
-     <p><%= entry.date %></p>
-     <p><%= entry.contents %></p>
-   </div>
+    <div class="panel-heading"> 
+      <h3 class="panel-title"><%= link_to(entry.title, entry_path(entry)) %></h3>
+    </div>
+    <div class="panel-body">
+      <p><%= entry.date %></p>
+      <p><%= entry.contents %></p>
+    </div>
   </div>
-</div>
- <% end %>
+<% end %>
 <%= link_to("Create new entry", new_entry_path, class: "btn btn-info") %>
